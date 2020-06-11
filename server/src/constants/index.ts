@@ -1,0 +1,11 @@
+const DB = 'blog',
+EVENTS = {
+  ALL: 'ALL',
+  DB_CONNECTED: 'DB_CONNECTED',
+  PROCESS_AUTO_PASS: 'PROCESS_AUTO_PASS'
+}
+
+export {
+  DB,
+  EVENTS
+}
