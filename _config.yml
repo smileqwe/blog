@@ -103,4 +103,14 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: git@github.com:smileqwe/blog.git
+  branch: [master]
+
+leancloud_counter_security:
+  enable_sync: false
+  app_id: bCTuPE5VGUDez7ua1zMf1dHL-gzGzoHsz
+  app_key: 9fAgNtM1jQRwJeTQK4CnvjJF
+  username: smileqwe # Will be asked while deploying if is left blank
+  password: OscarLuo522 # Recommmended to be left blank. Will be asked while deploying if is left blank
+
