@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
+</head>
+<script>
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyBEaHpyssHB6nyeFZF91encILN9F_PZht8",
+    projectId: "blog1-6461f",
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  function getCount(doc, increaseCount) {
+    // IncreaseCount will be false when not in article page
+    try {
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    } catch (error) {
+      console.error(error)
+      return 0
+    }
+
+  }
+
+  var db = firebase.firestore();
+  var articles = db.collection('articles');
+  var title = 'typescipt + electron + react'
+  var doc = articles.doc(title);
+  var increaseCount = 0;
+  getCount(doc, increaseCount).then(console.log(increaseCount));
+
+</script>
+
+<body>
+
+</body>
+
+</html>
