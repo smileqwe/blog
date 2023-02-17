@@ -92,11 +92,10 @@ history.replaceState =  addHistoryMethod('replaceState');
 
 ```js
 window.addHistoryListener('history',function(){
-    console.log('窗口的history改变了');
+    console.log('窗口的history改变了', {...history.state});
 })
 window.addHistoryListener('history',function(){
-    console.log('窗口的history改变了-我也听到了');
+    console.log('窗口的history改变了-我也听到了', {...history.state});
 })
-history.pushState({first:'first'}, "page2", "/first")
 ```
 观察上面结果打印；我们发现window的 history改变，我们成功的添加了事件监听！当然这里还是有缺陷的，就是少了事件的移除，有兴趣的同学可以把接下来的移除也书写一下，熟悉熟悉。

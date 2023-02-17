@@ -114,3 +114,8 @@ leancloud_counter_security:
   username: smileqwe # Will be asked while deploying if is left blank
   password: OscarLuo522 # Recommmended to be left blank. Will be asked while deploying if is left blank
 
+admin:
+  username: smile
+  password_hash: $2a$10$WW7USiT2Y28O/QoXqtMe8uDEF3NeT7z7HJk5YjEU4Y8e4.V.B5sSu
+  secret: oscar luojin smile
+

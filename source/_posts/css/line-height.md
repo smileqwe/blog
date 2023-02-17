@@ -1,5 +1,5 @@
 ---
-title: 设置line-height: 1; 字体却被截断
+title: 设置line-height 1; 字体却被截断
 date: 2022-01-04 15:37:00
 tags: font-size line-height height rem em 字体被截断
 ---
