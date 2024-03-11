@@ -11,6 +11,8 @@ tags:
 
 ②通过history的改变，进行js操作加载页面，然而history并不像hash那样简单，因为history的改变，除了浏览器的几个前进后退（使用 history.back(), history.forward()和 history.go() 方法来完成在用户历史记录中向后和向前的跳转。）等操作会主动触发popstate 事件，pushState，replaceState 并不会触发popstate事件，本篇文章主要解决history监听的问题，下面来看下具体实现
 
+<!-- more -->
+
 # 思路
 
 我们首先完成一个订阅-发布模式，然后重写history.pushState, history.replaceState,并添加消息通知，这样一来只要history的无法实现监听函数就被我们加上了事件通知，只不过这里用的不是浏览器原生事件，而是通过我们创建的event-bus  来实现通知，然后触发事件订阅函数的执行。 废话不多说，下面我们来做具体操作。

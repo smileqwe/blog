@@ -11,6 +11,8 @@ date: 2022-11-10 16:41:00
 ![image](/images/理赔小帮手1.png)
 ![动画](images/ball3.gif)
 
+<!-- more -->
+
 ## 分析组件结构
 ![image](/images/DASHENG-900x700-4.png)
 

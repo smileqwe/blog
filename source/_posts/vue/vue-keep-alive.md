@@ -12,6 +12,8 @@ tag: vue3 vue2 kepp-alive 缓存组件 组件缓存
 
 因为我们不需要缓存所有页面，比方说详情页，那我们就需要一个配置来区分哪个页面是需要缓存的，这里我们采用在 router 的 meta 信息里加上标志位的方式区分
 
+<!-- more -->
+
 在 router.js 中为需要缓存的组件增加 `keepAlive: true`
 ```js
 {
