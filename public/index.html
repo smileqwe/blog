@@ -159,6 +159,818 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/14/%E9%9D%A2%E7%BB%8F/ali/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="smiel luo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smile">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/14/%E9%9D%A2%E7%BB%8F/ali/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-14 16:08:27 / 修改时间：16:09:16" itemprop="dateCreated datePublished" datetime="2024-03-14T16:08:27+08:00">2024-03-14</time>
+            </span>
+
+          
+            <span id="/2024/03/14/%E9%9D%A2%E7%BB%8F/ali/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/03/14/%E9%9D%A2%E7%BB%8F/ali/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/14/%E9%9D%A2%E7%BB%8F/ali/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><p>排序算法： 常见的排序算法包括冒泡排序、选择排序、插入排序、归并排序、快速排序、堆排序等。</p>
+<p>优缺点和适用场合：</p>
+<p>冒泡排序：简单易懂，但效率较低，适合于少量元素的排序。 最坏 O(n^2) 最好 O(n)(加标志位)<br>选择排序：简单直观，但时间复杂度较高，适合于简单的排序任务。 (交换次数最少)<br>插入排序：对于部分有序的数据效率较高，适合于小规模数据或部分有序的数据。<br>归并排序：稳定且效率较高，适合处理大规模数据的排序。<br>快速排序：效率较高，但在最坏情况下可能性能下降，适合处理大规模数据的排序。<br>堆排序：空间复杂度低，适合处理大规模数据的排序。</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序算法的运作如下：</p>
+<ol>
+<li>比较两个相邻的数，如果前面的数大于后面的数，则将这两个数交换位置。第一次遍历后，最大的数会被放到数组的最后位置，即array[length - 1]。</li>
+<li>第二次遍历时跳过最后一个元素，因为该元素通过第一次遍历已经确定是最大值。</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> = (<span class="params">array</span>) =&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> swapped = <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> n = array.length - <span class="number">1</span></span><br><span class="line">  <span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (array[i] &gt; array[i + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="keyword">const</span> temp = array[i]</span><br><span class="line">        array[i] = array[i + <span class="number">1</span>]</span><br><span class="line">        array[i + <span class="number">1</span>] = temp</span><br><span class="line">        swapped = <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">while</span> (swapped)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> swapped = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j&lt; array.length - <span class="number">1</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (array[i] &gt; array[i + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="keyword">let</span> temp = array[i]</span><br><span class="line">        array[i] = array[i + <span class="number">1</span>]</span><br><span class="line">        array[i + <span class="number">1</span>] = temp</span><br><span class="line">        swapped = <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!swapped) <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度 O(n^2)</p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>选择排序(Selection sort)是一种简单直观的排序算法。其基本思想是：首先在未排序的数列中找到最小(or最大)元素，然后将其存放到数列的起始位置；接着，再从剩余未排序的元素中继续寻找最小(or最大)元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectSort</span> (<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> n = array.length</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i&lt; n; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> minIndex = i <span class="comment">// 最小值下标</span></span><br><span class="line">    <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (array[j] &lt; array[minIndex]) &#123;</span><br><span class="line">        minIndex = j</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (minIndex !== i) &#123;</span><br><span class="line">      <span class="keyword">let</span> temp = array[i]</span><br><span class="line">      array[i] = array[minIndex]</span><br><span class="line">      array[minIndex] = temp</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>插入排序的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。</p>
+<p><img src="/2024/03/14/%E9%9D%A2%E7%BB%8F/ali/a/1710386657797.png" alt="1710386657797"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">InsertSort</span> (<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> current = array[i]</span><br><span class="line">    <span class="keyword">let</span> j = i - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(j &gt;= <span class="number">0</span> &amp;&amp; array[j] &gt; current) &#123;</span><br><span class="line">      arr[j + <span class="number">1</span>] = arr[j]</span><br><span class="line">      j--</span><br><span class="line">    &#125;</span><br><span class="line">    array[j + <span class="number">1</span>] = current</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当时时间复杂度为O(n^2)</p>
+<p>可采用二分法优化性能</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">InsertSort</span> (<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> left = <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> right = i - <span class="number">1</span></span><br><span class="line">    <span class="keyword">let</span> current = array[i]</span><br><span class="line">    <span class="keyword">let</span> middle</span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">      middle = <span class="built_in">Math</span>.floor((left + right) / <span class="number">2</span>)</span><br><span class="line">      <span class="keyword">if</span> (array[middle] &gt; current) &#123;</span><br><span class="line">        right = middle - <span class="number">1</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        left = middle + <span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i -<span class="number">1</span>; j&gt;=left; j--) &#123;</span><br><span class="line">      array[j + <span class="number">1</span>] = array[j]</span><br><span class="line">    &#125;</span><br><span class="line">    array[left] = current</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>归并排序（MERGE-SORT）是利用归并的思想实现的排序方法，该算法采用经典的分治（divide-and-conquer）策略（分治法将问题分(divide)成一些小的问题然后递归求解，而治(conquer)的阶段则将分的阶段得到的各答案”修补”在一起，即分而治之)。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> mid = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>)</span><br><span class="line">  <span class="keyword">const</span> leftArr = arr.slice(<span class="number">0</span>, mid)</span><br><span class="line">  <span class="keyword">const</span> rightArr = arr.slice(mid)</span><br><span class="line">  <span class="keyword">const</span> sortedLeft = mergeSort(leftArr)</span><br><span class="line">  <span class="keyword">const</span> sortedRight = mergeSort(rightArr)</span><br><span class="line">  <span class="keyword">return</span> merge(sortedLeft, sortedRight)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span> (<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> mergeArr = []</span><br><span class="line">  <span class="keyword">let</span> leftIndex = <span class="number">0</span></span><br><span class="line">  <span class="keyword">let</span> rightIndex = <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> (leftIndex &lt; left.length &amp;&amp; rightIndex &lt; right.length) &#123;</span><br><span class="line">    <span class="keyword">if</span> (left[leftIndex] &lt; right[rightIndex]) &#123;</span><br><span class="line">      mergeArr.push(left[leftIndex])</span><br><span class="line">      leftIndex++</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      mergeArr.push(right[rightIndex])</span><br><span class="line">      rightIndex++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (leftIndex &lt; left.length) &#123;</span><br><span class="line">    mergeArr = mergeArr.concat(left.slice(leftIndex))</span><br><span class="line">  &#125;</span><br><span class="line">   <span class="keyword">if</span> (rightIndex &lt; right.length) &#123;</span><br><span class="line">    mergeArr = mergeArr.concat(right.slice(rightIndex))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> mergeArr</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序的3个基本步骤：</p>
+<ol>
+<li>从数组中选择一个元素作为基准点</li>
+<li>排序数组，所有比基准值小的元素摆放在左边，而大于基准值的摆放在右边。每次分割结束以后基准值会插入到中间去。</li>
+<li>最后利用递归，将摆放在左边的数组和右边的数组在进行一次上述的1和2操作。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span> (<span class="params">arr, startIndex, endIndex</span>) </span>&#123;</span><br><span class="line">  startIndex = startIndex ?? <span class="number">0</span></span><br><span class="line">  endIndex = endIndex ?? arr.length</span><br><span class="line">  <span class="keyword">if</span> (startIndex &lt; endIndex - <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> mid = partition(arr, startIndex. endIndex)</span><br><span class="line">    quickSort(arr, startIndex, mid - <span class="number">1</span>)</span><br><span class="line">    quickSort(arr, mid + <span class="number">1</span>, end)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition</span> (<span class="params">arr, startIndex, endIndex</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> pivot = arr[startIndex]</span><br><span class="line">  <span class="keyword">let</span> left = startIndex + <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> right = endIndex</span><br><span class="line">  <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">    <span class="keyword">while</span> (left &lt; right &amp;&amp; arr[left] &lt;= pivot) &#123;</span><br><span class="line">      left++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right &amp;&amp; arr[right] &gt;= pivot) &#123;</span><br><span class="line">      right--</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">      swap(arr, left, right)</span><br><span class="line">      left++</span><br><span class="line">      right--</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (left === right &amp;&amp; arr[right] &gt; pivot) &#123;</span><br><span class="line">    right--</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (right !== startIndex) &#123;</span><br><span class="line">    swap(arr, startIndex, right)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> right</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span> (<span class="params">arr, i, j</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">const</span> t = arr[i]</span><br><span class="line"> arr[i] = arr[j]</span><br><span class="line"> arr[j] = t</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">heapSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len = arr.length</span><br><span class="line">  <span class="comment">// 构建最大堆</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">Math</span>.floor(len / <span class="number">2</span>) - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    heapify(arr, len, i)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 依次去除堆顶元素并调整堆</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = len - <span class="number">1</span>; i &gt; <span class="number">0</span>; i++) &#123;</span><br><span class="line">    swap(arr, <span class="number">0</span>, i)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">heapify</span> (<span class="params">arr, len, index</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> maxIndex = index <span class="comment">// 最大值索引</span></span><br><span class="line">  <span class="keyword">const</span> left = <span class="number">2</span> * index + <span class="number">1</span> <span class="comment">// 左子节点索引</span></span><br><span class="line">  <span class="keyword">const</span> right = <span class="number">2</span> * index + <span class="number">2</span> <span class="comment">// 右子节点索引</span></span><br><span class="line">  <span class="keyword">if</span> (left &lt; len &amp;&amp; arr[left] &gt; arr[maxINdex]) &#123;</span><br><span class="line">    maxIndex = left</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (right &lt; len &amp;&amp; arr[right] &gt; arr[maxIndex] &#123;</span><br><span class="line">    maxIndex = right</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span> (maxIndex !== index) &#123;</span><br><span class="line">    swap(arr, maxIndex, index)</span><br><span class="line">    heapify(arr, len, maxIndex)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span> (<span class="params">arr, i, j</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> t = arr[i]</span><br><span class="line">  arr[i] = arr[j]</span><br><span class="line">  arr[j] = t</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h2><p>第一种，json序列化 一般来说项目中使用可以</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二种，对原始值和function直接赋值，对对象进行递归深克隆</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (obj === <span class="literal">null</span> || <span class="keyword">typeof</span> obj !== <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> newObj = <span class="built_in">Array</span>.isArray(obj) ? [] : &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">      newObj[key] = deepClone(obj[key])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newObj</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>第三种方式 第三方库 比如lodash</p>
+<h2 id="三个数的最大乘积"><a href="#三个数的最大乘积" class="headerlink" title="三个数的最大乘积"></a>三个数的最大乘积</h2><p>并查集</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maximumProduct = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> [max1, max2, max3] = [-<span class="literal">Infinity</span>, -<span class="literal">Infinity</span>, -<span class="literal">Infinity</span>];</span><br><span class="line">  <span class="keyword">let</span> [min1, min2] = [<span class="literal">Infinity</span>, <span class="literal">Infinity</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> num <span class="keyword">of</span> nums) &#123;</span><br><span class="line">    <span class="keyword">if</span> (num &lt; min1) &#123;</span><br><span class="line">      [min2, min1] = [min1, num];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &lt; min2) &#123;</span><br><span class="line">      min2 = num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (num &gt; max1) &#123;</span><br><span class="line">      [max3, max2, max1] = [max2, max1, num];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; max2) &#123;</span><br><span class="line">      [max3, max2] = [max2, num];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; max3) &#123;</span><br><span class="line">      max3 = num;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.max(min1 * min2 * max1, max1 * max2 * max3);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>sort 排序</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maximumProduct = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    nums.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line">    <span class="keyword">const</span> n = nums.length;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(nums[<span class="number">0</span>] * nums[<span class="number">1</span>] * nums[n - <span class="number">1</span>], nums[n - <span class="number">1</span>] * nums[n - <span class="number">2</span>] * nums[n - <span class="number">3</span>]);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="webwork的考点和回答"><a href="#webwork的考点和回答" class="headerlink" title="webwork的考点和回答"></a>webwork的考点和回答</h2><p>Web Workers 是前端开发中的重要概念，掌握相关知识可以展示你对于 JavaScript 并发编程和性能优化的理解。以下是关于 Web Workers 的常见考点以及相应的回答：</p>
+<ol>
+<li><p><strong>基本概念：</strong></p>
+<ul>
+<li><strong>考点：</strong> 了解 Web Workers 是 HTML5 中的一项技术，允许在浏览器中创建后台线程以执行耗时任务。</li>
+<li><strong>回答：</strong> Web Workers 允许在浏览器中创建多个 JavaScript 后台线程，使得可以在不阻塞主线程的情况下执行一些耗时的任务，例如大量计算、数据处理、网络请求等。</li>
+</ul>
+</li>
+<li><p><strong>使用方法：</strong></p>
+<ul>
+<li><strong>考点：</strong> 理解如何创建和使用 Web Workers。</li>
+<li><strong>回答：</strong> 使用 <code>new Worker(&#39;worker.js&#39;)</code> 可以创建一个 Web Worker，指定 worker 脚本的 URL。通过监听主线程和 Worker 之间的消息传递，可以实现数据的双向通信。</li>
+</ul>
+</li>
+<li><p><strong>线程间通信：</strong></p>
+<ul>
+<li><strong>考点：</strong> 了解如何在主线程和 Web Worker 之间进行通信。</li>
+<li><strong>回答：</strong> 可以通过 <code>postMessage()</code> 和 <code>onmessage</code> 方法实现主线程和 Worker 之间的消息传递。主线程通过 <code>worker.postMessage(data)</code> 发送消息，Worker 通过 <code>self.onmessage = function(event) &#123; /* 处理消息 */ &#125;</code> 接收消息，反之亦然。</li>
+</ul>
+</li>
+<li><p><strong>限制和注意事项：</strong></p>
+<ul>
+<li><strong>考点：</strong> 了解 Web Workers 的一些限制和注意事项。</li>
+<li><strong>回答：</strong> Web Workers 无法访问 DOM，因为它们运行在与主线程不同的上下文中。此外，由于安全性原因，Web Workers 无法访问某些浏览器 API（如 localStorage），并且受到跨域限制。</li>
+</ul>
+</li>
+<li><p><strong>浏览器支持和兼容性：</strong></p>
+<ul>
+<li><strong>考点：</strong> 了解不同浏览器对于 Web Workers 的支持情况。</li>
+<li><strong>回答：</strong> 大多数现代浏览器都支持 Web Workers，包括 Chrome、Firefox、Safari 和 Edge 等主流浏览器，但在一些旧版本浏览器（如 IE10 及以下版本）中可能存在兼容性问题。</li>
+</ul>
+</li>
+<li><p><strong>应用场景：</strong></p>
+<ul>
+<li><strong>考点：</strong> 理解 Web Workers 的应用场景。</li>
+<li><strong>回答：</strong> Web Workers 适用于处理一些需要大量计算或者耗时操作的任务，例如图像处理、数据分析、复杂计算等。通过将这些任务放到 Web Workers 中执行，可以避免阻塞主线程，提高页面的响应速度和性能。</li>
+</ul>
+</li>
+</ol>
+<p>通过准备和理解这些考点，你可以在面试中自信地回答与 Web Workers 相关的问题，并展示你对于 JavaScript 并发编程和性能优化方面的理解。</p>
+<h2 id="css"><a href="#css" class="headerlink" title="css"></a>css</h2><p>当面试官问到 CSS 变量（Custom Properties）的考点时，你可以回答如下：</p>
+<ol>
+<li><p><strong>基本语法：</strong> CSS 变量以 <code>--</code> 开头进行定义，例如：<code>--main-color: red;</code>。在使用时，通过 <code>var()</code> 函数来引用变量，例如：<code>color: var(--main-color);</code>。</p>
+</li>
+<li><p><strong>作用域：</strong> CSS 变量的作用域是块级作用域，它们可以被定义在全局作用域或者局部作用域中。在全局作用域中定义的变量可以在整个文档中使用，而在局部作用域中定义的变量只能在其所在的选择器范围内使用。</p>
+</li>
+<li><p><strong>继承和覆盖：</strong> CSS 变量可以继承，子元素可以继承父元素定义的变量。如果子元素自身定义了相同名称的变量，则会覆盖父元素的变量。例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    --<span class="selector-tag">main</span>-<span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">    --<span class="selector-tag">main</span>-<span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>子元素 <code>.child</code> 中的 <code>--main-color</code> 变量会覆盖父元素 <code>.parent</code> 中的同名变量。</p>
+</li>
+<li><p><strong>动态性：</strong> CSS 变量是动态的，可以通过 JavaScript 在运行时修改它们的值。例如，通过 JavaScript 代码 <code>document.documentElement.style.setProperty(&#39;--main-color&#39;, &#39;green&#39;);</code> 可以动态地修改 <code>--main-color</code> 变量的值为绿色。</p>
+</li>
+<li><p><strong>浏览器兼容性：</strong> CSS 变量的兼容性较好，主流现代浏览器（如 Chrome、Firefox、Safari、Edge 等）都支持。但需要注意的是，一些旧版本的浏览器（如 IE）可能不支持 CSS 变量，需要进行兼容性处理。</p>
+</li>
+<li><p><strong>应用场景：</strong> CSS 变量可以应用于主题定制、响应式设计、动态样式等方面。例如，通过定义一些基本的颜色、字体大小等变量，可以方便地在整个网站中进行主题切换或者样式调整。</p>
+</li>
+</ol>
+<p>综上所述，这些是关于 CSS 变量常见的考点，掌握了这些知识可以更好地应对与 CSS 变量相关的面试问题。</p>
+<h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><p>好的，我将逐个回答你提出的面试问题：</p>
+<ol>
+<li><strong>原型链缺点，is主要的继承方式：</strong><ul>
+<li><strong>原型链缺点：</strong> 原型链的主要缺点是在继承过程中会产生共享的属性和方法，这可能会导致意外的行为，因为一个对象的变动可能会影响到其它对象。</li>
+<li><strong>is主要的继承方式：</strong> 在 JavaScript 中，主要的继承方式有原型继承、借用构造函数继承、组合继承、原型式继承、寄生式继承、寄生组合式继承等。其中，最常用的继承方式是组合继承，即结合原型链和借用构造函数的方式。</li>
+</ul>
+</li>
+</ol>
+<h2 id="http和https"><a href="#http和https" class="headerlink" title="http和https"></a>http和https</h2><p><strong>https跟 http 的区别：</strong></p>
+<ul>
+<li><p><strong>HTTP（HyperText Transfer Protocol）：</strong> 是一种用于传输超文本的协议，数据传输是明文的，安全性较低。</p>
+<ul>
+<li>请求信息是明文传输，容易被窃听截取。</li>
+<li>没有验证对方身份，存在被冒充的风险</li>
+<li>数据的完整性未校验，容易被中间人篡改</li>
+</ul>
+</li>
+<li><p><strong>HTTPS（HTTP Secure）：</strong> 在 HTTP 的基础上加入了 SSL/TLS 协议进行数据加密传输，提供了安全性更高的传输方式，防止数据被窃取或篡改。</p>
+<ol>
+<li>客户端发起Https请求，连接到服务器的443端口。</li>
+<li>服务器必须要有一套数字证书（证书内容有公钥、证书颁发机构、失效日期等）。</li>
+<li>服务器将自己的数字证书发送给客户端（公钥在证书里面，私钥由服务器持有）。</li>
+<li>客户端收到数字证书之后，会验证证书的合法性。如果证书验证通过，就会生成一个随机的对称密钥，用证书的公钥加密。</li>
+<li>客户端将公钥加密后的密钥发送到服务器。</li>
+<li>服务器接收到客户端发来的密文密钥之后，用自己之前保留的私钥对其进行非对称解密，解密之后就得到客户端的密钥，然后用客户端密钥对返回数据进行对称加密，酱紫传输的数据都是密文啦。</li>
+<li>服务器将加密后的密文返回到客户端。</li>
+<li>客户端收到后，用自己的密钥对其进行对称解密，得到服务器返回的数据。</li>
+</ol>
+</li>
+<li><p><strong>主要区别：</strong></p>
+<ul>
+<li>HTTP 的数据传输是明文的，HTTPS 则使用 SSL/TLS 协议进行加密传输，更安全。</li>
+<li>HTTP 默认使用端口80，HTTPS 默认使用端口443。</li>
+<li>使用 HTTPS 的网站在浏览器地址栏会显示绿色的安全锁标志，而 HTTP 则不会。</li>
+</ul>
+</li>
+</ul>
+<h2 id="从输入url到显示主页的过程发生了什么"><a href="#从输入url到显示主页的过程发生了什么" class="headerlink" title="从输入url到显示主页的过程发生了什么"></a>从输入url到显示主页的过程发生了什么</h2><p><strong>思路:</strong> 这道题主要考察的知识点是HTTP的请求过程， <strong>DNS解析，TCP三次握手，四次挥手这几个要点</strong> ，我们都可以讲下。</p>
+<p>浏览器在请求资源前，会先检查本地是否有缓存，缓存是否过期</p>
+<ol>
+<li>DNS解析，查找域名对应的IP地址。</li>
+<li>与服务器通过三次握手，建立TCP连接</li>
+<li>向服务器发送HTTP请求</li>
+<li>服务器处理请求，返回网页内容</li>
+<li>浏览器解析并渲染页面</li>
+<li>TCP四次挥手，连接结束</li>
+</ol>
+<h2 id="http-状态码"><a href="#http-状态码" class="headerlink" title="http 状态码"></a>http 状态码</h2><p><img src="/2024/03/14/%E9%9D%A2%E7%BB%8F/ali/a/1710403009070.png" alt="1710403009070"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E4%B8%AD%E6%96%B0%E5%A2%9E%E5%B1%9E%E6%80%A7%E7%95%8C%E9%9D%A2%E4%B8%8D%E6%9B%B4%E6%96%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="smiel luo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smile">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E4%B8%AD%E6%96%B0%E5%A2%9E%E5%B1%9E%E6%80%A7%E7%95%8C%E9%9D%A2%E4%B8%8D%E6%9B%B4%E6%96%B0/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-13 20:24:36 / 修改时间：22:37:20" itemprop="dateCreated datePublished" datetime="2024-03-13T20:24:36+08:00">2024-03-13</time>
+            </span>
+
+          
+            <span id="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E4%B8%AD%E6%96%B0%E5%A2%9E%E5%B1%9E%E6%80%A7%E7%95%8C%E9%9D%A2%E4%B8%8D%E6%9B%B4%E6%96%B0/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E4%B8%AD%E6%96%B0%E5%A2%9E%E5%B1%9E%E6%80%A7%E7%95%8C%E9%9D%A2%E4%B8%8D%E6%9B%B4%E6%96%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E4%B8%AD%E6%96%B0%E5%A2%9E%E5%B1%9E%E6%80%A7%E7%95%8C%E9%9D%A2%E4%B8%8D%E6%9B%B4%E6%96%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>vue2中是因为新增加的属性并没有被劫持，所以监听不到属性的改变，可以通过vm.$set，对整个对象进行赋值，Object.assign的方法触发监听，也可以通过$fourceUpdate强制更新页面</p>
+<p>vue3中，如果对数据直接对下标进行赋值  或者直接修改length  都是监听不到的  需要调用Array的方法进行  比如pop<br> push splice</p>
+<p>基础类型储存在栈中，引用类型储存在堆中</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/13/%E9%9D%A2%E7%BB%8F/data%E5%B1%9E%E6%80%A7%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="smiel luo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smile">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/13/%E9%9D%A2%E7%BB%8F/data%E5%B1%9E%E6%80%A7%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-13 20:21:29 / 修改时间：20:23:19" itemprop="dateCreated datePublished" datetime="2024-03-13T20:21:29+08:00">2024-03-13</time>
+            </span>
+
+          
+            <span id="/2024/03/13/%E9%9D%A2%E7%BB%8F/data%E5%B1%9E%E6%80%A7%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%87%BD%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/03/13/%E9%9D%A2%E7%BB%8F/data%E5%B1%9E%E6%80%A7%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/13/%E9%9D%A2%E7%BB%8F/data%E5%B1%9E%E6%80%A7%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>如果data不是函数而是一个对象的话，如果这个组件存在多个实例，那么他们的data对象其实是指向同一个内存空间，导致数据污染</p>
+<p>根实例因为只会存在一个，所以可以直接使用对象</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="smiel luo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smile">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-13 20:06:39 / 修改时间：20:21:01" itemprop="dateCreated datePublished" datetime="2024-03-13T20:06:39+08:00">2024-03-13</time>
+            </span>
+
+          
+            <span id="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>beforeCreate 组件实例创建之初  此时数据data和方法methods都还未绑定</p>
+<p>created 组件实例已经创建  此时已经能够访问到data和methods 但是 dom还未被创建 </p>
+<p>beforeMount 组件挂载前 组件在此时需要判断el是否被创建，如果未被创建，需要在显示调用vm.$mount后才会创建</p>
+<p>mounted 此时dom已经挂载并渲染</p>
+<p>beforeUpdate</p>
+<p>updated</p>
+<p>destory</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="smiel luo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smile">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-13 19:50:06 / 修改时间：20:04:09" itemprop="dateCreated datePublished" datetime="2024-03-13T19:50:06+08:00">2024-03-13</time>
+            </span>
+
+          
+            <span id="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>双向绑定，即数据和视图的响应式设计，具体表现为 <code>view</code> 的改变会导致<code>model</code>发生变化，而<code>model</code>的变化也能实时更新到<code>view</code></p>
+<p>多在表单情况下使用</p>
+<p>跟单向数据流的区别是：单向数据流只有model -&gt; view的变化是自动同步的，但是从view -&gt; model的变化需要开发自己收集，一般是通过input或者chang事件进行收集和更新model</p>
+<p>双向绑定在需要实时反映用户输入的场合非常方便，但是在复杂应用中，双向绑定也会带来管理上的劣势，不知道数据是何时更改的，怎么更改的</p>
+<p>原理：vue2 是通过 Object.defineProperty方法劫持了各对象的getter和setter属性，在属性发生变更时更新视图<br>vue3中是通过es6的Proxy实现，替代了Object.defineProperty，实现了更好的性能</p>
+<p>Proxy具有更好性能的原因：Object.defineProperty在面对一个深层对象时，需要对对象所有属性进行遍历，递归进行监听，但是Proxy只需要对整个对象进行一次代理，对所有属性值的更新都可以监听到</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E7%9A%84%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="smiel luo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smile">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-13 19:34:23 / 修改时间：19:40:43" itemprop="dateCreated datePublished" datetime="2024-03-13T19:34:23+08:00">2024-03-13</time>
+            </span>
+
+          
+            <span id="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E7%9A%84%E7%90%86%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/13/%E9%9D%A2%E7%BB%8F/vue%E7%9A%84%E7%90%86%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>vue是一个单页面的开源mvvm框架，他由传统的dom操作改为了操作model</p>
+<p>相比于传统的js开发，vue避免开发直接操作dom，导致因为开发习惯和开发能力导致的性能问题，而是通过数据驱动modelview的方式，开发只需要关注数据，由vue控制页面刷新</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/13/%E9%9D%A2%E7%BB%8F/v-if%E5%92%8Cv-for/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="smiel luo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smile">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/13/%E9%9D%A2%E7%BB%8F/v-if%E5%92%8Cv-for/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-13 19:24:40 / 修改时间：19:28:06" itemprop="dateCreated datePublished" datetime="2024-03-13T19:24:40+08:00">2024-03-13</time>
+            </span>
+
+          
+            <span id="/2024/03/13/%E9%9D%A2%E7%BB%8F/v-if%E5%92%8Cv-for/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/03/13/%E9%9D%A2%E7%BB%8F/v-if%E5%92%8Cv-for/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/13/%E9%9D%A2%E7%BB%8F/v-if%E5%92%8Cv-for/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>为什么不建议v-if和v-for在同一个元素上使用</p>
+<p>答：因为v-if和v-for在vue2和vue3中的优先级不一致，会导致理解上的混乱，vue2中，v-for的优先级比v-if高，但在vue3中是相反的，而且如果同时使用，先进行v-for，然后v-if的情况下也会导致浪费性能，进行多余的v-if判断</p>
+<p>如果要在list中排除某些条件的数据，可以通过computed计算，也可以通过template进行更显式的层级关系</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/12/%E9%9D%A2%E7%BB%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="smiel luo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smile">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/12/%E9%9D%A2%E7%BB%8F/" class="post-title-link" itemprop="url">面经</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-12 16:12:11" itemprop="dateCreated datePublished" datetime="2024-03-12T16:12:11+08:00">2024-03-12</time>
+            </span>
+
+          
+            <span id="/2024/03/12/%E9%9D%A2%E7%BB%8F/" class="post-meta-item leancloud_visitors" data-flag-title="面经" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/03/12/%E9%9D%A2%E7%BB%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/12/%E9%9D%A2%E7%BB%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/11/vue/vue%E9%A1%B9%E7%9B%AEvscode%E6%8F%92%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -334,722 +1146,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/11/js%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E6%98%AF%E6%95%B0%E7%BB%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="smiel luo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smile">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/11/js%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E6%98%AF%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">js判断一个对象是否是数组</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-03-11 14:35:32 / 修改时间：15:04:04" itemprop="dateCreated datePublished" datetime="2024-03-11T14:35:32+08:00">2024-03-11</time>
-            </span>
-
-          
-            <span id="/2024/03/11/js%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E6%98%AF%E6%95%B0%E7%BB%84/" class="post-meta-item leancloud_visitors" data-flag-title="js判断一个对象是否是数组" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/03/11/js%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E6%98%AF%E6%95%B0%E7%BB%84/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/11/js%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E6%98%AF%E6%95%B0%E7%BB%84/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>第一种</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.call()</span><br></pre></td></tr></table></figure>
-
-<p>第二种</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray()</span><br></pre></td></tr></table></figure>
-
-<p>第三种</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj <span class="keyword">instanceof</span> <span class="built_in">Array</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2024/03/08/vue/visualizer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="smiel luo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smile">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/08/vue/visualizer/" class="post-title-link" itemprop="url">vite 打包分析插件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-03-08 11:10:34 / 修改时间：11:17:27" itemprop="dateCreated datePublished" datetime="2024-03-08T11:10:34+08:00">2024-03-08</time>
-            </span>
-
-          
-            <span id="/2024/03/08/vue/visualizer/" class="post-meta-item leancloud_visitors" data-flag-title="vite 打包分析插件" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/03/08/vue/visualizer/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/08/vue/visualizer/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="1、安装插件"><a href="#1、安装插件" class="headerlink" title="1、安装插件"></a>1、安装插件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install rollup-plugin-visualizer</span><br></pre></td></tr></table></figure>
-<h3 id="2、在vite-confg-ts引入插件并使用"><a href="#2、在vite-confg-ts引入插件并使用" class="headerlink" title="2、在vite.confg.ts引入插件并使用"></a>2、在vite.confg.ts引入插件并使用</h3><p>引入</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; visualizer &#125; <span class="keyword">from</span> <span class="string">&#x27;rollup-plugin-visualizer&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>使用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> plugins = [vue(), vueSetupExtend(), vueJsx(), visualizer()]</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、打包后，会在项目根目录下产生一个stats-html文件"><a href="#3、打包后，会在项目根目录下产生一个stats-html文件" class="headerlink" title="3、打包后，会在项目根目录下产生一个stats.html文件"></a>3、打包后，会在项目根目录下产生一个stats.html文件</h3><p><img src="/2024/03/08/vue/visualizer/images/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240308111636.png" alt="stats.html"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2022/11/10/vue/ball/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="smiel luo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smile">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/10/vue/ball/" class="post-title-link" itemprop="url">实现一个跳跃小球loading动画</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-10 16:41:00" itemprop="dateCreated datePublished" datetime="2022-11-10T16:41:00+08:00">2022-11-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-07 11:33:12" itemprop="dateModified" datetime="2024-03-07T11:33:12+08:00">2024-03-07</time>
-              </span>
-
-          
-            <span id="/2022/11/10/vue/ball/" class="post-meta-item leancloud_visitors" data-flag-title="实现一个跳跃小球loading动画" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/11/10/vue/ball/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/10/vue/ball/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><p><img src="/images/%E7%90%86%E8%B5%94%E5%B0%8F%E5%B8%AE%E6%89%8B1.png" alt="image"><br><img src="/2022/11/10/vue/ball/images/ball3.gif" alt="动画"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/11/10/vue/ball/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2022/10/17/history%E7%9B%91%E5%90%AC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="smiel luo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smile">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/17/history%E7%9B%91%E5%90%AC/" class="post-title-link" itemprop="url">history监听</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-17 14:52:30" itemprop="dateCreated datePublished" datetime="2022-10-17T14:52:30+08:00">2022-10-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-07 11:33:35" itemprop="dateModified" datetime="2024-03-07T11:33:35+08:00">2024-03-07</time>
-              </span>
-
-          
-            <span id="/2022/10/17/history%E7%9B%91%E5%90%AC/" class="post-meta-item leancloud_visitors" data-flag-title="history监听" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/10/17/history%E7%9B%91%E5%90%AC/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/10/17/history%E7%9B%91%E5%90%AC/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大家都知道，通过浏览器的地址栏来改变切换页面，前端实现主要有两种方式：</p>
-<p>①通过hash改变，利用window.onhashchange 监听。</p>
-<p>②通过history的改变，进行js操作加载页面，然而history并不像hash那样简单，因为history的改变，除了浏览器的几个前进后退（使用 history.back(), history.forward()和 history.go() 方法来完成在用户历史记录中向后和向前的跳转。）等操作会主动触发popstate 事件，pushState，replaceState 并不会触发popstate事件，本篇文章主要解决history监听的问题，下面来看下具体实现</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/17/history%E7%9B%91%E5%90%AC/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2022/01/04/css/line-height/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="smiel luo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smile">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/04/css/line-height/" class="post-title-link" itemprop="url">设置line-height 1; 字体却被截断</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-04 15:37:00" itemprop="dateCreated datePublished" datetime="2022-01-04T15:37:00+08:00">2022-01-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-08 11:02:52" itemprop="dateModified" datetime="2024-03-08T11:02:52+08:00">2024-03-08</time>
-              </span>
-
-          
-            <span id="/2022/01/04/css/line-height/" class="post-meta-item leancloud_visitors" data-flag-title="设置line-height 1; 字体却被截断" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/01/04/css/line-height/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/01/04/css/line-height/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>当font-size带小数时，height 会向下取整，如果再设置了<code>overflow: hidden; </code>字体就会被截断<br><img src="/2022/01/04/css/line-height/images/16412815346402.png" alt="image"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2021/11/10/log%E4%B9%B1%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="smiel luo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smile">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/10/log%E4%B9%B1%E7%A0%81/" class="post-title-link" itemprop="url">cmd 输出 git log 中文乱码</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-10 15:38:26" itemprop="dateCreated datePublished" datetime="2021-11-10T15:38:26+08:00">2021-11-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-07 10:51:50" itemprop="dateModified" datetime="2024-03-07T10:51:50+08:00">2024-03-07</time>
-              </span>
-
-          
-            <span id="/2021/11/10/log%E4%B9%B1%E7%A0%81/" class="post-meta-item leancloud_visitors" data-flag-title="cmd 输出 git log 中文乱码" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/10/log%E4%B9%B1%E7%A0%81/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/10/log%E4%B9%B1%E7%A0%81/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>设置 Windows 系统常量-解决 <code>PowerShell</code> 或 <code>CMD</code> 等命令行工具输出 <code>git log</code> 中文乱码</p>
-<p>Windows键+R打开运行，输入<code>sysdm.cpl</code>打开系统属性，选中“高级”这个Tab，点击“环境变量”。新建系统变量</p>
-<p>image.png</p>
-<p>验证 关闭 <code>PowerShell</code> 重新打开，输入<code>echo $env:LESSCHARSET</code>，如果输出<code>utf-8</code>证明设置成功！此时输入<code>git log</code>可以看到中文乱码问题已得到解决！</p>
-<p>image.png</p>
-<p>docker run -d –restart always –name PandoraNext –net=bridge -p 8811:8811 -v ./data:/data -v ./sessions:/root/.cache/PandoraNext pengzhile/pandora-next</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2021/11/10/performance/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="smiel luo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smile">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/10/performance/" class="post-title-link" itemprop="url">前端性能优化</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-10 15:38:26" itemprop="dateCreated datePublished" datetime="2021-11-10T15:38:26+08:00">2021-11-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-07 11:33:50" itemprop="dateModified" datetime="2024-03-07T11:33:50+08:00">2024-03-07</time>
-              </span>
-
-          
-            <span id="/2021/11/10/performance/" class="post-meta-item leancloud_visitors" data-flag-title="前端性能优化" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/10/performance/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/10/performance/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h1><h2 id="HTTP-相关"><a href="#HTTP-相关" class="headerlink" title="HTTP 相关"></a>HTTP 相关</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/10/performance/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.smileluojin.cn/2021/11/09/element/tabs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="smiel luo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smile">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/09/element/tabs/" class="post-title-link" itemprop="url">element tab 性能优化</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-09 10:49:40" itemprop="dateCreated datePublished" datetime="2021-11-09T10:49:40+08:00">2021-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-05 11:18:02" itemprop="dateModified" datetime="2023-12-05T11:18:02+08:00">2023-12-05</time>
-              </span>
-
-          
-            <span id="/2021/11/09/element/tabs/" class="post-meta-item leancloud_visitors" data-flag-title="element tab 性能优化" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/09/element/tabs/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/09/element/tabs/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="element-ui-动态table导致的性能瓶颈"><a href="#element-ui-动态table导致的性能瓶颈" class="headerlink" title="element-ui 动态table导致的性能瓶颈"></a>element-ui 动态table导致的性能瓶颈</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1119,7 +1215,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

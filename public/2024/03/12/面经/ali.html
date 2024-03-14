@@ -1,0 +1,380 @@
+<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><p>排序算法： 常见的排序算法包括冒泡排序、选择排序、插入排序、归并排序、快速排序、堆排序等。</p>
+<p>优缺点和适用场合：</p>
+<p>冒泡排序：简单易懂，但效率较低，适合于少量元素的排序。 最坏 O(n^2) 最好 O(n)(加标志位)<br>选择排序：简单直观，但时间复杂度较高，适合于简单的排序任务。 (交换次数最少)<br>插入排序：对于部分有序的数据效率较高，适合于小规模数据或部分有序的数据。<br>归并排序：稳定且效率较高，适合处理大规模数据的排序。<br>快速排序：效率较高，但在最坏情况下可能性能下降，适合处理大规模数据的排序。<br>堆排序：空间复杂度低，适合处理大规模数据的排序。</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序算法的运作如下：</p>
+<ol>
+<li>比较两个相邻的数，如果前面的数大于后面的数，则将这两个数交换位置。第一次遍历后，最大的数会被放到数组的最后位置，即array[length - 1]。</li>
+<li>第二次遍历时跳过最后一个元素，因为该元素通过第一次遍历已经确定是最大值。</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ol>
+<pre><code class="javascript">function bubbleSort = (array) =&gt; {
+  let swapped = false
+  let n = array.length - 1
+  do {
+    for (let i = 0; i &lt; n; i++) {
+      if (array[i] &gt; array[i + 1]) {
+        const temp = array[i]
+        array[i] = array[i + 1]
+        array[i + 1] = temp
+        swapped = true
+      }
+    }
+  } while (swapped)
+
+  return array
+}
+</code></pre>
+<pre><code class="javascript">function bubbleSort (array) {
+  for (let i = 0; i &lt; array.length - 1; i++) {
+    let swapped = false
+    for(let j = 0; j&lt; array.length - 1; j++) {
+      if (array[i] &gt; array[i + 1]) {
+        let temp = array[i]
+        array[i] = array[i + 1]
+        array[i + 1] = temp
+        swapped = true
+      }
+    }
+    if (!swapped) break;
+  }
+  return array
+}
+</code></pre>
+<p>时间复杂度 O(n^2)</p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>选择排序(Selection sort)是一种简单直观的排序算法。其基本思想是：首先在未排序的数列中找到最小(or最大)元素，然后将其存放到数列的起始位置；接着，再从剩余未排序的元素中继续寻找最小(or最大)元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<pre><code class="javascript">function selectSort (array) {
+  let n = array.length
+  for (let i = 0; i&lt; n; i++) {
+    let minIndex = i // 最小值下标
+    for (j = i + 1; j &lt; n; j++) {
+      if (array[j] &lt; array[minIndex]) {
+        minIndex = j
+      }
+    }
+    if (minIndex !== i) {
+      let temp = array[i]
+      array[i] = array[minIndex]
+      array[minIndex] = temp
+    }
+  }
+  return array
+}
+</code></pre>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>插入排序的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。</p>
+<p><img src="/image/a/1710386657797.png" alt="1710386657797"></p>
+<pre><code class="javascript">function InsertSort (array) {
+  for (let i = 1; i &lt; array.length; i++) {
+    let current = array[i]
+    let j = i - 1
+    while(j &gt;= 0 &amp;&amp; array[j] &gt; current) {
+      arr[j + 1] = arr[j]
+      j--
+    }
+    array[j + 1] = current
+  }
+}
+</code></pre>
+<p>当时时间复杂度为O(n^2)</p>
+<p>可采用二分法优化性能</p>
+<pre><code class="javascript">function InsertSort (array) {
+  for (let i = 1; i &lt; array.length; i++) {
+    let left = 0
+    let right = i - 1
+    let current = array[i]
+    let middle
+    while (left &lt;= right) {
+      middle = Math.floor((left + right) / 2)
+      if (array[middle] &gt; current) {
+        right = middle - 1
+      } else {
+        left = middle + 1
+      }
+    }
+    for (let j = i -1; j&gt;=left; j--) {
+      array[j + 1] = array[j]
+    }
+    array[left] = current
+  }
+}
+</code></pre>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>归并排序（MERGE-SORT）是利用归并的思想实现的排序方法，该算法采用经典的分治（divide-and-conquer）策略（分治法将问题分(divide)成一些小的问题然后递归求解，而治(conquer)的阶段则将分的阶段得到的各答案”修补”在一起，即分而治之)。</p>
+<pre><code class="javascript">function mergeSort (arr) {
+  if (arr.length &lt;= 1) {
+    return arr
+  }
+  const mid = Math.floor(arr.length / 2)
+  const leftArr = arr.slice(0, mid)
+  const rightArr = arr.slice(mid)
+  const sortedLeft = mergeSort(leftArr)
+  const sortedRight = mergeSort(rightArr)
+  return merge(sortedLeft, sortedRight)
+}
+
+function merge (left, right) {
+  let mergeArr = []
+  let leftIndex = 0
+  let rightIndex = 0
+  while (leftIndex &lt; left.length &amp;&amp; rightIndex &lt; right.length) {
+    if (left[leftIndex] &lt; right[rightIndex]) {
+      mergeArr.push(left[leftIndex])
+      leftIndex++
+    } else {
+      mergeArr.push(right[rightIndex])
+      rightIndex++
+    }
+  }
+  if (leftIndex &lt; left.length) {
+    mergeArr = mergeArr.concat(left.slice(leftIndex))
+  }
+   if (rightIndex &lt; right.length) {
+    mergeArr = mergeArr.concat(right.slice(rightIndex))
+  }
+  return mergeArr
+}
+</code></pre>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序的3个基本步骤：</p>
+<ol>
+<li>从数组中选择一个元素作为基准点</li>
+<li>排序数组，所有比基准值小的元素摆放在左边，而大于基准值的摆放在右边。每次分割结束以后基准值会插入到中间去。</li>
+<li>最后利用递归，将摆放在左边的数组和右边的数组在进行一次上述的1和2操作。</li>
+</ol>
+<pre><code class="javascript">function quickSort (arr, startIndex, endIndex) {
+  startIndex = startIndex ?? 0
+  endIndex = endIndex ?? arr.length
+  if (startIndex &lt; endIndex - 1) {
+    const mid = partition(arr, startIndex. endIndex)
+    quickSort(arr, startIndex, mid - 1)
+    quickSort(arr, mid + 1, end)
+  }
+  return arr
+}
+
+function partition (arr, startIndex, endIndex) {
+  const pivot = arr[startIndex]
+  let left = startIndex + 1
+  let right = endIndex
+  while (left &lt; right) {
+    while (left &lt; right &amp;&amp; arr[left] &lt;= pivot) {
+      left++
+    }
+    while(left &lt; right &amp;&amp; arr[right] &gt;= pivot) {
+      right--
+    }
+    if (left &lt; right) {
+      swap(arr, left, right)
+      left++
+      right--
+    }
+  }
+  if (left === right &amp;&amp; arr[right] &gt; pivot) {
+    right--
+  }
+  if (right !== startIndex) {
+    swap(arr, startIndex, right)
+  }
+  return right
+}
+
+function swap (arr, i, j) {
+ const t = arr[i]
+ arr[i] = arr[j]
+ arr[j] = t
+} 
+</code></pre>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><pre><code class="javascript">
+function heapSort (arr) {
+  const len = arr.length
+  // 构建最大堆
+  for (let i = Math.floor(len / 2) - 1; i &gt;= 0; i--) {
+    heapify(arr, len, i)
+  }
+  // 依次去除堆顶元素并调整堆
+  for (let i = len - 1; i &gt; 0; i++) {
+    swap(arr, 0, i)
+  }
+  return arr
+}
+
+function heapify (arr, len, index) {
+  let maxIndex = index // 最大值索引
+  const left = 2 * index + 1 // 左子节点索引
+  const right = 2 * index + 2 // 右子节点索引
+  if (left &lt; len &amp;&amp; arr[left] &gt; arr[maxINdex]) {
+    maxIndex = left
+  }
+  if (right &lt; len &amp;&amp; arr[right] &gt; arr[maxIndex] {
+    maxIndex = right
+  })
+  if (maxIndex !== index) {
+    swap(arr, maxIndex, index)
+    heapify(arr, len, maxIndex)
+  }
+}
+
+function swap (arr, i, j) {
+  const t = arr[i]
+  arr[i] = arr[j]
+  arr[j] = t
+}
+</code></pre>
+<h2 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h2><p>第一种，json序列化 一般来说项目中使用可以</p>
+<pre><code class="javascript">function deepClone (obj) {
+  return JSON.parse(JSON.stringify(obj))
+}
+</code></pre>
+<p>第二种，对原始值和function直接赋值，对对象进行递归深克隆</p>
+<pre><code class="javascript">function deepClone (obj) {
+  if (obj === null || typeof obj !== &#39;object&#39;) {
+    return obj
+  }
+  const newObj = Array.isArray(obj) ? [] : {}
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      newObj[key] = deepClone(obj[key])
+    }
+  }
+  return newObj
+}
+</code></pre>
+<p>第三种方式 第三方库 比如lodash</p>
+<h2 id="三个数的最大乘积"><a href="#三个数的最大乘积" class="headerlink" title="三个数的最大乘积"></a>三个数的最大乘积</h2><p>并查集</p>
+<pre><code class="javascript">var maximumProduct = function(nums) {
+  let [max1, max2, max3] = [-Infinity, -Infinity, -Infinity];
+  let [min1, min2] = [Infinity, Infinity];
+  for (const num of nums) {
+    if (num &lt; min1) {
+      [min2, min1] = [min1, num];
+    } else if (num &lt; min2) {
+      min2 = num;
+    }
+    if (num &gt; max1) {
+      [max3, max2, max1] = [max2, max1, num];
+    } else if (num &gt; max2) {
+      [max3, max2] = [max2, num];
+    } else if (num &gt; max3) {
+      max3 = num;
+    }
+  }
+  return Math.max(min1 * min2 * max1, max1 * max2 * max3);
+};
+</code></pre>
+<p>sort 排序</p>
+<pre><code class="javascript">var maximumProduct = function(nums) {
+    nums.sort((a, b) =&gt; a - b);
+    const n = nums.length;
+    return Math.max(nums[0] * nums[1] * nums[n - 1], nums[n - 1] * nums[n - 2] * nums[n - 3]);
+};
+</code></pre>
+<h2 id="webwork的考点和回答"><a href="#webwork的考点和回答" class="headerlink" title="webwork的考点和回答"></a>webwork的考点和回答</h2><p>Web Workers 是前端开发中的重要概念，掌握相关知识可以展示你对于 JavaScript 并发编程和性能优化的理解。以下是关于 Web Workers 的常见考点以及相应的回答：</p>
+<ol>
+<li><p><strong>基本概念：</strong></p>
+<ul>
+<li><strong>考点：</strong> 了解 Web Workers 是 HTML5 中的一项技术，允许在浏览器中创建后台线程以执行耗时任务。</li>
+<li><strong>回答：</strong> Web Workers 允许在浏览器中创建多个 JavaScript 后台线程，使得可以在不阻塞主线程的情况下执行一些耗时的任务，例如大量计算、数据处理、网络请求等。</li>
+</ul>
+</li>
+<li><p><strong>使用方法：</strong></p>
+<ul>
+<li><strong>考点：</strong> 理解如何创建和使用 Web Workers。</li>
+<li><strong>回答：</strong> 使用 <code>new Worker(&#39;worker.js&#39;)</code> 可以创建一个 Web Worker，指定 worker 脚本的 URL。通过监听主线程和 Worker 之间的消息传递，可以实现数据的双向通信。</li>
+</ul>
+</li>
+<li><p><strong>线程间通信：</strong></p>
+<ul>
+<li><strong>考点：</strong> 了解如何在主线程和 Web Worker 之间进行通信。</li>
+<li><strong>回答：</strong> 可以通过 <code>postMessage()</code> 和 <code>onmessage</code> 方法实现主线程和 Worker 之间的消息传递。主线程通过 <code>worker.postMessage(data)</code> 发送消息，Worker 通过 <code>self.onmessage = function(event) { /* 处理消息 */ }</code> 接收消息，反之亦然。</li>
+</ul>
+</li>
+<li><p><strong>限制和注意事项：</strong></p>
+<ul>
+<li><strong>考点：</strong> 了解 Web Workers 的一些限制和注意事项。</li>
+<li><strong>回答：</strong> Web Workers 无法访问 DOM，因为它们运行在与主线程不同的上下文中。此外，由于安全性原因，Web Workers 无法访问某些浏览器 API（如 localStorage），并且受到跨域限制。</li>
+</ul>
+</li>
+<li><p><strong>浏览器支持和兼容性：</strong></p>
+<ul>
+<li><strong>考点：</strong> 了解不同浏览器对于 Web Workers 的支持情况。</li>
+<li><strong>回答：</strong> 大多数现代浏览器都支持 Web Workers，包括 Chrome、Firefox、Safari 和 Edge 等主流浏览器，但在一些旧版本浏览器（如 IE10 及以下版本）中可能存在兼容性问题。</li>
+</ul>
+</li>
+<li><p><strong>应用场景：</strong></p>
+<ul>
+<li><strong>考点：</strong> 理解 Web Workers 的应用场景。</li>
+<li><strong>回答：</strong> Web Workers 适用于处理一些需要大量计算或者耗时操作的任务，例如图像处理、数据分析、复杂计算等。通过将这些任务放到 Web Workers 中执行，可以避免阻塞主线程，提高页面的响应速度和性能。</li>
+</ul>
+</li>
+</ol>
+<p>通过准备和理解这些考点，你可以在面试中自信地回答与 Web Workers 相关的问题，并展示你对于 JavaScript 并发编程和性能优化方面的理解。</p>
+<h2 id="css"><a href="#css" class="headerlink" title="css"></a>css</h2><p>当面试官问到 CSS 变量（Custom Properties）的考点时，你可以回答如下：</p>
+<ol>
+<li><p><strong>基本语法：</strong> CSS 变量以 <code>--</code> 开头进行定义，例如：<code>--main-color: red;</code>。在使用时，通过 <code>var()</code> 函数来引用变量，例如：<code>color: var(--main-color);</code>。</p>
+</li>
+<li><p><strong>作用域：</strong> CSS 变量的作用域是块级作用域，它们可以被定义在全局作用域或者局部作用域中。在全局作用域中定义的变量可以在整个文档中使用，而在局部作用域中定义的变量只能在其所在的选择器范围内使用。</p>
+</li>
+<li><p><strong>继承和覆盖：</strong> CSS 变量可以继承，子元素可以继承父元素定义的变量。如果子元素自身定义了相同名称的变量，则会覆盖父元素的变量。例如：</p>
+<pre><code class="css">.parent {
+    --main-color: red;
+}
+
+.child {
+    --main-color: blue;
+}
+</code></pre>
+<p>子元素 <code>.child</code> 中的 <code>--main-color</code> 变量会覆盖父元素 <code>.parent</code> 中的同名变量。</p>
+</li>
+<li><p><strong>动态性：</strong> CSS 变量是动态的，可以通过 JavaScript 在运行时修改它们的值。例如，通过 JavaScript 代码 <code>document.documentElement.style.setProperty(&#39;--main-color&#39;, &#39;green&#39;);</code> 可以动态地修改 <code>--main-color</code> 变量的值为绿色。</p>
+</li>
+<li><p><strong>浏览器兼容性：</strong> CSS 变量的兼容性较好，主流现代浏览器（如 Chrome、Firefox、Safari、Edge 等）都支持。但需要注意的是，一些旧版本的浏览器（如 IE）可能不支持 CSS 变量，需要进行兼容性处理。</p>
+</li>
+<li><p><strong>应用场景：</strong> CSS 变量可以应用于主题定制、响应式设计、动态样式等方面。例如，通过定义一些基本的颜色、字体大小等变量，可以方便地在整个网站中进行主题切换或者样式调整。</p>
+</li>
+</ol>
+<p>综上所述，这些是关于 CSS 变量常见的考点，掌握了这些知识可以更好地应对与 CSS 变量相关的面试问题。</p>
+<h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><p>好的，我将逐个回答你提出的面试问题：</p>
+<ol>
+<li><strong>原型链缺点，is主要的继承方式：</strong><ul>
+<li><strong>原型链缺点：</strong> 原型链的主要缺点是在继承过程中会产生共享的属性和方法，这可能会导致意外的行为，因为一个对象的变动可能会影响到其它对象。</li>
+<li><strong>is主要的继承方式：</strong> 在 JavaScript 中，主要的继承方式有原型继承、借用构造函数继承、组合继承、原型式继承、寄生式继承、寄生组合式继承等。其中，最常用的继承方式是组合继承，即结合原型链和借用构造函数的方式。</li>
+</ul>
+</li>
+</ol>
+<h2 id="http和https"><a href="#http和https" class="headerlink" title="http和https"></a>http和https</h2><p><strong>https跟 http 的区别：</strong></p>
+<ul>
+<li><p><strong>HTTP（HyperText Transfer Protocol）：</strong> 是一种用于传输超文本的协议，数据传输是明文的，安全性较低。</p>
+<ul>
+<li>请求信息是明文传输，容易被窃听截取。</li>
+<li>没有验证对方身份，存在被冒充的风险</li>
+<li>数据的完整性未校验，容易被中间人篡改</li>
+</ul>
+</li>
+<li><p><strong>HTTPS（HTTP Secure）：</strong> 在 HTTP 的基础上加入了 SSL/TLS 协议进行数据加密传输，提供了安全性更高的传输方式，防止数据被窃取或篡改。</p>
+<ol>
+<li>客户端发起Https请求，连接到服务器的443端口。</li>
+<li>服务器必须要有一套数字证书（证书内容有公钥、证书颁发机构、失效日期等）。</li>
+<li>服务器将自己的数字证书发送给客户端（公钥在证书里面，私钥由服务器持有）。</li>
+<li>客户端收到数字证书之后，会验证证书的合法性。如果证书验证通过，就会生成一个随机的对称密钥，用证书的公钥加密。</li>
+<li>客户端将公钥加密后的密钥发送到服务器。</li>
+<li>服务器接收到客户端发来的密文密钥之后，用自己之前保留的私钥对其进行非对称解密，解密之后就得到客户端的密钥，然后用客户端密钥对返回数据进行对称加密，酱紫传输的数据都是密文啦。</li>
+<li>服务器将加密后的密文返回到客户端。</li>
+<li>客户端收到后，用自己的密钥对其进行对称解密，得到服务器返回的数据。</li>
+</ol>
+</li>
+<li><p><strong>主要区别：</strong></p>
+<ul>
+<li>HTTP 的数据传输是明文的，HTTPS 则使用 SSL/TLS 协议进行加密传输，更安全。</li>
+<li>HTTP 默认使用端口80，HTTPS 默认使用端口443。</li>
+<li>使用 HTTPS 的网站在浏览器地址栏会显示绿色的安全锁标志，而 HTTP 则不会。</li>
+</ul>
+</li>
+</ul>
+<h2 id="从输入url到显示主页的过程发生了什么"><a href="#从输入url到显示主页的过程发生了什么" class="headerlink" title="从输入url到显示主页的过程发生了什么"></a>从输入url到显示主页的过程发生了什么</h2><p><strong>思路:</strong> 这道题主要考察的知识点是HTTP的请求过程， <strong>DNS解析，TCP三次握手，四次挥手这几个要点</strong> ，我们都可以讲下。</p>
+<p>浏览器在请求资源前，会先检查本地是否有缓存，缓存是否过期</p>
+<ol>
+<li>DNS解析，查找域名对应的IP地址。</li>
+<li>与服务器通过三次握手，建立TCP连接</li>
+<li>向服务器发送HTTP请求</li>
+<li>服务器处理请求，返回网页内容</li>
+<li>浏览器解析并渲染页面</li>
+<li>TCP四次挥手，连接结束</li>
+</ol>
+<h2 id="http-状态码"><a href="#http-状态码" class="headerlink" title="http 状态码"></a>http 状态码</h2><p><img src="/image/a/1710403009070.png" alt="1710403009070"></p>
