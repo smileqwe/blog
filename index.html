@@ -184,7 +184,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-03-14 16:26:42 / 修改时间：17:18:06" itemprop="dateCreated datePublished" datetime="2024-03-14T16:26:42+08:00">2024-03-14</time>
+              <time title="创建时间：2024-03-14 16:26:42 / 修改时间：21:48:51" itemprop="dateCreated datePublished" datetime="2024-03-14T16:26:42+08:00">2024-03-14</time>
             </span>
 
           
@@ -219,7 +219,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>在素材管理系统中设计并实现了流程审批系统，角色权限管理系统，素材编辑系统，<del>公司首个nodejs接入etcd</del></p>
+          <h1 id="面试问题"><a href="#面试问题" class="headerlink" title="面试问题"></a>面试问题</h1><p>vue2和vue3的diff算法有什么区别<br>虚拟dom有哪些优缺点<br>csrf攻击是什么 如何防范<br>ts的inter怎么使用<br>小程序为什么不提供dom操作<br>实际项目中的性能优化，是怎么做的</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>在素材管理系统中设计并实现了流程审批系统，角色权限管理系统，素材编辑系统，<del>公司首个nodejs接入etcd</del></p>
 <p>流程审批：由后台管理系统维护流程，通过编辑流程图，实现在不同阶段由不同角色进行审核，并且可以设置需要全部审核通过，还是单个审核通过，后台实现方式为栈，当有一个审批流程时，基于当前审批流程图数据创建一个审批堆栈，满足条件则推出顶层，进入下一层，一直到栈清空</p>
 <p>角色权限管理：后台管理系统有角色管理和权限管理两个菜单，在角色管理中可以创建角色，为角色选择权限，配置角色用户，一个用户可以拥有多角色，在用户登录后，后台对用户所在角色权限进行合并，去重，然后返回给前端，前端通过vue directive控制对应状态</p>
 <p>素材编辑：类富文本编辑，不过不需要加粗，斜体等等，仅是在设置 <code>contenteditable</code> 的基础上，增加了评论功能，评论功能的实现方式为在评论开始和结束的元素上进行拆分，将本来是一个tag的标签，根据用户选择范围，设置class，class格式为 <code>评论id + comment</code> ,然后监听这些元素的click事件，在点击时显示对应评论</p>
